@@ -11,10 +11,6 @@ module OmniAuth
         authorize_url: 'https://login.windows.net/common/oauth2/v2.0/authorize'
       }
 
-      option :authorize_params, {
-        resource: 'https://graph.windows.net/'
-      }
-
       uid { raw_info["objectId"] }
 
       info do
