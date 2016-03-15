@@ -7,8 +7,8 @@ module OmniAuth
 
       option :client_options, {
         site:          'https://outlook.office365.com/',
-        token_url:     'https://login.windows.net/common/oauth2/token',
-        authorize_url: 'https://login.windows.net/common/oauth2/authorize'
+        token_url:     'https://login.windows.net/common/oauth2/v2.0/token',
+        authorize_url: 'https://login.windows.net/common/oauth2/v2.0/authorize'
       }
 
       option :authorize_params, {
@@ -32,7 +32,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(authorize_params.resource + 'Me?api-version=1.5').parsed
+        @raw_info ||= access_token.get(authorize_params.resource + 'Me').parsed
       end
     end
   end
